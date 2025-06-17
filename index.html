@@ -1,691 +1,1759 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Craftportal • Home</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-<style>
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    color: white;
-    background-color: #000000;
-    padding-bottom: 60px;
-    overflow-x: hidden;
-}
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.7);
-    justify-content: center;
-    align-items: center;
-}
-
-.modal-content {
-    background-color: #333;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 300px;
-    border-radius: 10px;
-}
-
-.modal-header {
-    padding: 10px;
-    border-bottom: 1px solid #888;
-    display: flex;
-    justify-content: space-between;
-}
-
-.modal-body {
-    padding: 20px 0;
-}
-
-.modal-footer {
-    padding: 10px;
-    border-top: 1px solid #888;
-    text-align: right;
-}
-
-.close {
-    color: #aaa;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: #fff;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #888;
-    border-radius: 5px;
-    background-color: #222;
-    color: #fff;
-}
-
-button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    color: #fff;
-}
-
-button#submit {
-    background-color: #00aaff;
-}
-
-button#logout {
-    background-color: #ff4444;
-}
-
-button#submit:hover {
-    background-color: #0099cc;
-}
-
-button#logout:hover {
-    background-color: #cc3333;
-}
-
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    color: white;
-    background-color: #000000;
-    padding-bottom: 60px;
-    overflow-x: hidden;
-}
-
-.background-image-container {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-}
-
-.background-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('https://i.postimg.cc/wBzf0NXz/background-2x.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: -1;
-}
-
-.background-info {
-    position: absolute;
-    top: 50%;
-    right: 5%;
-    transform: translateY(-50%);
-    color: white;
-    text-align: left;
-    z-index: 2;
-    padding: 30px;
-    background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 10px;
-    width: 300px;
-}
-
-.background-info h1 {
-    margin: 0;
-    font-size: 32px;
-}
-
-.background-info p {
-    margin: 10px 0;
-    font-size: 16px;
-}
-
-.background-info .button-container {
-    display: flex;
-    flex-direction: column;
-}
-
-.separator {
-    width: 100%;
-    height: 5px;
-    background-color: #ffffff;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    z-index: 1;
-}
-
-.down-arrow {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 24px;
-    color: white;
-    cursor: pointer;
-    z-index: 1000;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.down-arrow:hover {
-    opacity: 0.7;
-}
-
-.main-title {
-    margin: 100px 0 20px;
-    text-align: center;
-    font-size: 36px;
-    color: white;
-    font-weight: bold;
-}
-
-.button-download,
-.button-discord {
-    padding: 12px 24px;
-    margin: 10px 0;
-    border: 2px solid;
-    border-radius: 8px;
-    cursor: pointer;
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    text-transform: uppercase;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.button-download {
-    background-color: transparent;
-    border-color: white;
-}
-
-.button-download i {
-    margin-right: 8px;
-}
-
-.button-download:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    transform: scale(1.05);
-}
-
-.button-discord {
-    background-color: #7289da;
-    border-color: #7289da;
-}
-
-.button-discord i {
-    margin-right: 8px;
-}
-
-.button-discord:hover {
-    background-color: #5f73a1;
-    transform: scale(1.05);
-}
-
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.7);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-}
-
-nav .logo {
-    flex: 1;
-}
-
-nav .logo img {
-    height: 50px;
-}
-
-nav .nav-links {
-    display: flex;
-    list-style: none;
-    flex: 2;
-    justify-content: center;
-}
-
-nav .nav-links li {
-    margin: 0 15px;
-    position: relative;
-}
-
-nav .nav-links a {
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 18px;
-    padding: 15px;
-    transition: color 0.3s ease-in-out;
-}
-
-nav .nav-links a:hover {
-    color: #00aaff;
-}
-
-nav .nav-links a.active::after {
-    content: '';
-    display: block;
-    width: 75%;
-    height: 2px;
-    background-color: #00aaff;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-nav .profile {
-    display: flex;
-    align-items: center;
-    flex: 1;
-    justify-content: flex-end;
-    margin-right: 65px;
-}
-
-nav .profile i {
-    font-size: 1.5rem;
-    margin-right: 5px;
-    transition: color 0.3s ease-in-out;
-}
-
-nav .profile a {
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    margin-left: 5px;
-    transition: color 0.3s ease-in-out;
-}
-
-nav .profile a:hover,
-nav .profile i:hover {
-    color: #00aaff;
-}
-
-section {
-    padding: 50px 20px;
-    text-align: center;
-}
-
-.additional-sections-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 50px 20px;
-}
-
-.additional-section {
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 30px;
-    border-radius: 15px;
-    max-width: 300px;
-    text-align: left;
-    border: 2px solid white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.additional-section img {
-    width: 100px;
-    height: 100px;
-    border-radius: 15px;
-    margin-bottom: 20px;
-}
-
-.additional-section .text-content h3 {
-    color: #00aaff;
-    margin: 0;
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.additional-section .text-content p {
-    margin: 0;
-    font-size: 16px;
-    color: #ffffff;
-}
-
-.minigames-section {
-    padding: 50px 20px;
-    text-align: center;
-    margin: 0 auto;
-    max-width: 1200px;
-}
-
-.minigames-section h2 {
-    font-size: 36px;
-    margin-bottom: 30px;
-    color: white;
-}
-
-.minigames-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
-
-.minigame {
-    background-color: rgba(0, 0, 0, 0.8);
-    border-radius: 15px;
-    padding: 20px;
-    max-width: 250px;
-    text-align: center;
-    color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.minigame img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
-
-.minigame h3 {
-    font-size: 20px;
-    margin: 10px 0;
-}
-
-.minigame a {
-    color: #00aaff;
-    text-decoration: none;
-    font-size: 16px;
-    transition: color 0.3s ease-in-out;
-}
-
-.minigame a:hover {
-    text-decoration: underline;
-}
-
-.history-section {
-    padding: 50px 20px;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
-.history-section h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
-    color: #00aaff;
-}
-
-.history-section p {
-    font-size: 18px;
-    color: white;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-footer {
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    text-align: center;
-    padding: 20px;
-    position: relative;
-    width: 100%;
-    bottom: 0;
-}
-
-footer p {
-    margin: 10px 0;
-    font-size: 14px;
-}
-
-footer a {
-    color: #00aaff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Craftportal • Minecraft Minigames Community</title>
+    <meta name="description" content="Entdecke einzigartige Minecraft Minigames auf Craftportal.net - Construct & Conquer und mehr! Trete unserer Community bei.">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+    <style>
+    :root {
+        --primary: #00aaff;
+        --primary-dark: #0099cc;
+        --secondary: #7289da;
+        --secondary-dark: #5f73a1;
+        --danger: #ff4444;
+        --danger-dark: #cc3333;
+        --dark: #121212;
+        --darker: #0a0a0a;
+        --light: #ffffff;
+        --gray: #888;
+        --dark-gray: #333;
+        --section-bg: rgba(20, 20, 20, 0.9);
+        --card-bg: rgba(30, 30, 30, 0.8);
+        --nav-bg: rgba(10, 10, 10, 0.95);
+        --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        --shadow-hover: 0 8px 15px rgba(0, 0, 0, 0.2);
+        --border-radius: 12px;
+        --border-radius-lg: 16px;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        color: var(--light);
+        background-color: var(--dark);
+        line-height: 1.6;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+    }
+
+    h1, h2, h3, h4 {
+        font-weight: 600;
+        line-height: 1.2;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+        transition: var(--transition);
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 5%;
+        background-color: var(--nav-bg);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        transition: var(--transition);
+    }
+
+    nav.scrolled {
+        padding: 10px 5%;
+        box-shadow: var(--shadow);
+    }
+
+    .logo img {
+        height: 50px;
+        transition: var(--transition);
+    }
+
+    nav.scrolled .logo img {
+        height: 40px;
+    }
+
+    .nav-links {
+        display: flex;
+        list-style: none;
+    }
+
+    .nav-links li {
+        margin: 0 10px;
+        position: relative;
+    }
+
+    .nav-links a {
+        padding: 10px 15px;
+        font-weight: 500;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+    }
+
+    .nav-links a i {
+        margin-right: 8px;
+        font-size: 1.1rem;
+    }
+
+    .nav-links a:hover {
+        color: var(--primary);
+    }
+
+    .nav-links a.active {
+        color: var(--primary);
+    }
+
+    .nav-links a.active::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: var(--primary);
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+    }
+
+    .auth-buttons {
+        display: flex;
+        align-items: center;
+    }
+
+    .auth-btn {
+        padding: 8px 20px;
+        border-radius: var(--border-radius);
+        font-weight: 500;
+        margin-left: 10px;
+        display: flex;
+        align-items: center;
+    }
+
+    .auth-btn i {
+        margin-right: 8px;
+    }
+
+    .login-btn {
+        background-color: transparent;
+        border: 1px solid var(--primary);
+        color: var(--primary);
+        font-family: 'Poppins', sans-serif;
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+    }
+
+    .login-btn:hover {
+        background-color: rgba(0, 170, 255, 0.1);
+    }
+
+    .register-btn {
+        background-color: var(--primary);
+        color: var(--light);
+        border: 0px;
+        font-family: 'Poppins', sans-serif;
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+    }
+
+    .register-btn:hover {
+        background-color: var(--primary-dark);
+    }
+
+    .user-profile {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .user-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-size: cover;
+        background-position: center;
+        margin-right: 10px;
+        border: 2px solid var(--primary);
+    }
+
+    .username {
+        font-weight: 500;
+        margin-right: 5px;
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: var(--dark);
+        border-radius: var(--border-radius);
+        padding: 10px 0;
+        min-width: 200px;
+        box-shadow: var(--shadow);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: var(--transition);
+        z-index: 1001;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .user-profile:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .dropdown-menu a {
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+    }
+
+    .dropdown-menu a:hover {
+        background-color: rgba(255, 255, 255, 0.05);
+        color: var(--primary);
+    }
+
+    .dropdown-menu a i {
+        margin-right: 10px;
+        width: 20px;
+        text-align: center;
+    }
+
+    .dropdown-divider {
+        height: 1px;
+        background-color: rgba(255, 255, 255, 0.1);
+        margin: 5px 0;
+    }
+
+    .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--light);
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    .hero {
+        position: relative;
+        height: 100vh;
+        min-height: 700px;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .hero-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('https://i.postimg.cc/wBzf0NXz/background-2x.png');
+        background-size: cover;
+        background-position: center;
+        z-index: -2;
+    }
+
+    .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0.5) 100%);
+        z-index: -1;
+    }
+
+    .hero-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 5%;
+        width: 100%;
+    }
+
+    .hero-text {
+        max-width: 600px;
+    }
+
+    .hero-subtitle {
+        color: var(--primary);
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 500;
+    }
+
+    .hero-title {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        line-height: 1.1;
+    }
+
+    .hero-description {
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+        opacity: 0.9;
+    }
+
+    .hero-buttons {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .btn {
+        padding: 12px 25px;
+        border-radius: var(--border-radius);
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition);
+        font-size: 1rem;
+        cursor: pointer;
+    }
+
+    .btn i {
+        margin-right: 8px;
+    }
+
+    .btn-primary {
+        background-color: var(--primary);
+        color: var(--light);
+        border: 0px;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .btn-primary:hover {
+        background-color: var(--primary-dark);
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-hover);
+    }
+
+    .btn-secondary {
+        background-color: var(--secondary);
+        color: var(--light);
+    }
+
+    .btn-secondary:hover {
+        background-color: var(--secondary-dark);
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-hover);
+    }
+
+    .btn-outline {
+        background-color: transparent;
+        border: 2px solid var(--light);
+        color: var(--light);
+    }
+
+    .btn-outline:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-hover);
+    }
+
+    .scroll-down {
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: var(--light);
+        font-size: 1.5rem;
+        cursor: pointer;
+        animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0) translateX(-50%);
+        }
+        40% {
+            transform: translateY(-20px) translateX(-50%);
+        }
+        60% {
+            transform: translateY(-10px) translateX(-50%);
+        }
+    }
+
+    .stats {
+        padding: 80px 5%;
+        background-color: var(--section-bg);
+    }
+
+    .stats-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+    }
+
+    .stat-card {
+        background-color: var(--card-bg);
+        padding: 30px;
+        border-radius: var(--border-radius);
+        text-align: center;
+        transition: var(--transition);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .stat-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-hover);
+    }
+
+    .stat-icon {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 15px;
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 5px;
+        background: linear-gradient(to right, var(--primary), var(--secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .stat-label {
+        font-size: 1rem;
+        opacity: 0.8;
+    }
+
+    .minigames {
+        padding: 100px 5%;
+        background-color: var(--darker);
+    }
+
+    .section-header {
+        text-align: center;
+        margin-bottom: 60px;
+    }
+
+    .section-subtitle {
+        color: var(--primary);
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 15px;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+
+    .section-description {
+        max-width: 700px;
+        margin: 0 auto;
+        opacity: 0.8;
+    }
+
+    .minigames-grid {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+    }
+
+    .minigame-card {
+        background-color: var(--card-bg);
+        border-radius: var(--border-radius-lg);
+        overflow: hidden;
+        transition: var(--transition);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .minigame-card:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-hover);
+    }
+
+    .minigame-image {
+        height: 200px;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .minigame-content {
+        padding: 25px;
+    }
+
+    .minigame-title {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+
+    .minigame-description {
+        margin-bottom: 20px;
+        opacity: 0.8;
+    }
+
+    .minigame-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .minigame-players {
+        display: flex;
+        align-items: center;
+        color: var(--primary);
+    }
+
+    .minigame-players i {
+        margin-right: 5px;
+    }
+
+    .minigame-link {
+        color: var(--primary);
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+    }
+
+    .minigame-link i {
+        margin-left: 5px;
+        transition: var(--transition);
+    }
+
+    .minigame-link:hover i {
+        transform: translateX(5px);
+    }
+
+    .team {
+        padding: 100px 5%;
+        background-color: var(--section-bg);
+    }
+
+    .team-grid {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 65px;
+    }
+    
+    .partner-grid {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+    }
+    
+    .partner-card {
+        background-color: var(--card-bg);
+        border-radius: var(--border-radius);
+        padding: 30px;
+        text-align: center;
+        transition: var(--transition);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .team-card {
+        background-color: var(--card-bg);
+        border-radius: var(--border-radius);
+        padding: 30px;
+        width: 300px;
+        text-align: center;
+        transition: var(--transition);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .team-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-hover);
+    }
+
+    .team-avatar {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: 0 auto 20px;
+        border: 3px solid var(--primary);
+    }
+
+    .team-name {
+        font-size: 1.3rem;
+        margin-bottom: 5px;
+    }
+
+    .team-role {
+        color: var(--primary);
+        font-weight: 500;
+        margin-bottom: 15px;
+    }
+
+    .team-bio {
+        opacity: 0.8;
+        margin-bottom: 20px;
+    }
+
+    .team-social {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .team-social a {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition);
+    }
+
+    .team-social a:hover {
+        background-color: var(--primary);
+        color: var(--light);
+        transform: translateY(-3px);
+    }
+
+    .partners {
+        padding: 80px 5%;
+        background-color: var(--darker);
+    }
+
+    .partners-grid {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+    }
+
+    .history {
+        padding: 100px 5%;
+        background-color: var(--section-bg);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .history::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('https://i.postimg.cc/wBzf0NXz/background-2x.png') center/cover;
+        opacity: 0.1;
+        z-index: -1;
+    }
+
+    .history-container {
+        max-width: 900px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .history-title {
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+    }
+
+    .history-text {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        margin-bottom: 40px;
+        opacity: 0.9;
+    }
+
+    .timeline {
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .timeline::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 2px;
+        height: 100%;
+        background-color: var(--primary);
+    }
+
+    .timeline-item {
+        position: relative;
+        margin-bottom: 50px;
+        width: 100%;
+    }
+
+    .timeline-item:nth-child(odd) {
+        padding-right: 50%;
+        text-align: right;
+    }
+
+    .timeline-item:nth-child(even) {
+        padding-left: 50%;
+        text-align: left;
+    }
+
+    .timeline-dot {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: var(--primary);
+        border: 3px solid var(--dark);
+    }
+
+    .timeline-content {
+        background-color: var(--card-bg);
+        padding: 20px;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+    }
+
+    .timeline-date {
+        color: var(--primary);
+        font-weight: 500;
+        margin-bottom: 10px;
+    }
+
+    .timeline-title {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+    }
+
+    .timeline-description {
+        opacity: 0.8;
+    }
+
+    .newsletter {
+        padding: 80px 5%;
+        background-color: var(--primary);
+        text-align: center;
+    }
+
+    .newsletter-container {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .newsletter-title {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .newsletter-description {
+        margin-bottom: 30px;
+        opacity: 0.9;
+    }
+
+    .newsletter-form {
+        display: flex;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .newsletter-input {
+        flex: 1;
+        padding: 15px;
+        border: none;
+        border-radius: var(--border-radius) 0 0 var(--border-radius);
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .newsletter-input:focus {
+        outline: none;
+    }
+
+    .newsletter-btn {
+        padding: 0 25px;
+        background-color: var(--dark);
+        color: var(--light);
+        border: none;
+        border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        cursor: pointer;
+        transition: var(--transition);
+    }
+
+    .newsletter-btn:hover {
+        background-color: var(--darker);
+    }
+
+    footer {
+        background-color: var(--darker);
+        padding: 60px 5% 30px;
+    }
+
+    .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 40px;
+        margin-bottom: 40px;
+    }
+
+    .footer-logo {
+        margin-bottom: 20px;
+    }
+
+    .footer-logo img {
+        height: 50px;
+    }
+
+    .footer-about {
+        margin-bottom: 20px;
+        opacity: 0.8;
+    }
+
+    .footer-social {
+        display: flex;
+        gap: 15px;
+    }
+
+    .footer-social a {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition);
+    }
+
+    .footer-social a:hover {
+        background-color: var(--primary);
+        color: var(--light);
+        transform: translateY(-3px);
+    }
+
+    .footer-title {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        color: var(--light);
+    }
+
+    .footer-links {
+        list-style: none;
+    }
+
+    .footer-links li {
+        margin-bottom: 10px;
+    }
+
+    .footer-links a {
+        opacity: 0.8;
+        transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+        opacity: 1;
+        color: var(--primary);
+    }
+
+    .footer-bottom {
+        text-align: center;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-bottom p {
+        opacity: 0.7;
+        font-size: 0.9rem;
+    }
+
+    .footer-bottom a {
+        color: var(--primary);
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 2000;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+    }
+
+    .modal.show {
+        display: flex;
+    }
+
+    .modal-content {
+        background-color: var(--dark);
+        border-radius: var(--border-radius-lg);
+        width: 90%;
+        max-width: 400px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        transform: translateY(20px);
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+
+    .modal.show .modal-content {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .modal-header {
+        padding: 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .modal-title {
+        font-size: 1.5rem;
+    }
+
+    .modal-close {
+        background: none;
+        border: none;
+        color: var(--light);
+        font-size: 1.5rem;
+        cursor: pointer;
+        opacity: 0.7;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .modal-close:hover {
+        opacity: 1;
+        color: var(--primary);
+    }
+
+    .modal-body {
+        padding: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+    }
+
+    .form-input {
+        width: 100%;
+        padding: 12px 15px;
+        border-radius: var(--border-radius);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background-color: rgba(255, 255, 255, 0.05);
+        color: var(--light);
+        font-family: 'Poppins', sans-serif;
+        transition: var(--transition);
+    }
+
+    .form-input:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 2px rgba(0, 170, 255, 0.2);
+    }
+
+    .form-footer {
+        display: flex;
+        justify-content: flex-end;
+        padding: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .btn-modal {
+        padding: 10px 20px;
+        border-radius: var(--border-radius);
+        font-weight: 500;
+        cursor: pointer;
+        transition: var(--transition);
+    }
+
+    .btn-modal-primary {
+        background-color: var(--primary);
+        color: var(--light);
+        border: none;
+        font-family: 'Poppins', sans-serif;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .btn-modal-primary:hover {
+        background-color: var(--primary-dark);
+    }
+
+    .btn-modal-secondary {
+        background-color: transparent;
+        color: var(--light);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        margin-right: 10px;
+        font-family: 'Poppins', sans-serif;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .btn-modal-secondary:hover {
+        background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .form-link {
+        color: var(--primary);
+        font-size: 0.9rem;
+        text-align: center;
+        display: block;
+        margin-top: 15px;
+    }
+
+    @media (max-width: 992px) {
+        .nav-links {
+            position: fixed;
+            top: 80px;
+            left: -100%;
+            width: 80%;
+            height: calc(100vh - 80px);
+            background-color: var(--nav-bg);
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding-top: 40px;
+            transition: var(--transition);
+            z-index: 999;
+        }
+
+        .nav-links.active {
+            left: 0;
+        }
+
+        .nav-links li {
+            margin: 15px 0;
+        }
+
+        .mobile-menu-btn {
+            display: block;
+        }
+
+        .hero-title {
+            font-size: 2.8rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+        }
+
+        .timeline::before {
+            left: 30px;
+        }
+
+        .timeline-item:nth-child(odd),
+        .timeline-item:nth-child(even) {
+            padding-left: 80px;
+            padding-right: 0;
+            text-align: left;
+        }
+
+        .timeline-dot {
+            left: 20px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .hero {
+            min-height: 600px;
+        }
+
+        .hero-title {
+            font-size: 2.2rem;
+        }
+
+        .hero-buttons {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .btn {
+            width: 100%;
+        }
+
+        .newsletter-form {
+            flex-direction: column;
+        }
+
+        .newsletter-input {
+            border-radius: var(--border-radius);
+            margin-bottom: 10px;
+        }
+
+        .newsletter-btn {
+            border-radius: var(--border-radius);
+            padding: 15px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        nav {
+            padding: 15px;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .hero-title {
+            font-size: 2rem;
+        }
+
+        .hero-description {
+            font-size: 1rem;
+        }
+
+        .section-header {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+        }
+
+        .minigames-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .team-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+    </style>
 </head>
-
 <body>
-<nav>
-<div class="logo">
-    <a href="https://www.craftportal.net/home">
-        <img src="https://i.postimg.cc/9XLqdFxj/craftportal.png" alt="Logo" ondragstart="return false;" style="pointer-events: none;">
-    </a>
-</div>
-    <ul class="nav-links">
-        <li><a href="https://www.craftportal.net/home" class="active" target="_self">Home</a></li>
-        <li><a href="https://www.craftportal.net/news" target="_self">News</a></li>
-        <li><a href="https://www.craftportal.net/support" target="_self">Support</a></li>
-    </ul>
-    <div class="profile">
-        <i class="fa-solid fa-circle-user" id="profile-pic"></i>
-        <a href="#anmelden" id="login-link">Anmelden</a>
-    </div>
-</nav>
-
-<div class="modal" id="login-modal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h2>Anmelden</h2>
-            <span class="close" id="close-modal">&times;</span>
-        </div>
-        <div class="modal-body">
-            <input type="text" id="minecraft-username" placeholder="Minecraft Benutzername">
-        </div>
-        <div class="modal-footer">
-            <button id="submit">Anmelden</button>
-        </div>
-    </div>
-</div>
-
-<div class="background-image-container">
-    <div class="background-image"></div>
-    <div class="background-info">
-        <h1>Willkommen auf Craftportal.net!</h1>
-        <p>Erlebe die besten Minigames und Community-Erlebnisse. Tauch ein in unsere einzigartigen Minigames und genieße spannende Abenteuer. Unser engagiertes Team sorgt dafür, dass du immer eine großartige Zeit auf unseren Servern hast. Bleibe auf dem Laufenden und sei Teil unserer Community.</p>
-        <div class="button-container">
-            <a id="copy-ip" class="button-download" onclick="copyIP()">
-                <i class="fa-solid fa-copy"></i> IP-Adresse Kopieren
-            </a>
-            <a class="button-discord" href="https://discord.gg/HVM2psaapR">
-                <i class="fa-brands fa-discord"></i> Discord
+    <nav id="navbar">
+        <div class="logo">
+            <a href="https://www.craftportal.net/home">
+                <img src="https://i.postimg.cc/9XLqdFxj/craftportal.png" alt="Craftportal Logo">
             </a>
         </div>
-    </div>
-    <div class="separator"></div>
-    <div class="down-arrow" onclick="scrollDown()">
-        <i class="fa-solid fa-chevron-down"></i>
-    </div>
-</div>
+        
+        <ul class="nav-links">
+            <li><a href="https://www.craftportal.net/home" class="active"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="https://www.craftportal.net/news"><i class="fas fa-newspaper"></i> News</a></li>
+            <li><a href="https://www.craftportal.net/support"><i class="fas fa-headset"></i> Support</a></li>
+            <li><a href="https://www.craftportal.net/shop"><i class="fas fa-shopping-cart"></i> Shop</a></li>
+            <li><a href="https://www.craftportal.net/leaderboard"><i class="fas fa-trophy"></i> Leaderboard</a></li>
+        </ul>
+        
+        <div class="auth-buttons" id="auth-buttons">
+            <button class="auth-btn login-btn" id="login-btn"><i class="fas fa-sign-in-alt"></i> Anmelden</button>
+        </div>
+        
+        <div class="user-profile" id="user-profile" style="display: none;">
+            <div class="user-avatar" id="user-avatar"></div>
+            <span class="username" id="username">Benutzername</span>
+            <i class="fas fa-chevron-down"></i>
+            
+            <div class="dropdown-menu">
+                <a href="#"><i class="fas fa-user"></i> Profil</a>
+                <a href="#"><i class="fas fa-cog"></i> Einstellungen</a>
+                <a href="#"><i class="fas fa-shopping-cart"></i> Shop</a>
+                <div class="dropdown-divider"></div>
+                <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Abmelden</a>
+            </div>
+        </div>
+        
+        <button class="mobile-menu-btn" id="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
 
-<main id="home">
-    <section class="minigames-section">
-        <h2>Unsere Minigames</h2>
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content">
+            <div class="hero-text">
+                <span class="hero-subtitle">Willkommen bei</span>
+                <h1 class="hero-title">Craftportal.net</h1>
+                <p class="hero-description">
+                    Erlebe die besten Minigames und Community-Erlebnisse. Tauch ein in unsere einzigartigen Minigames und genieße spannende Abenteuer. Unser engagiertes Team sorgt dafür, dass du immer eine großartige Zeit auf unseren Servern hast.
+                </p>
+                
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" id="copy-ip-btn">
+                        <i class="fas fa-copy"></i> IP: craftportal.net
+                    </button>
+                    <a href="https://discord.gg/FBJmEN6p58" class="btn btn-secondary">
+                        <i class="fab fa-discord"></i> Discord
+                    </a>
+                    <a href="#minigames" class="btn btn-outline">
+                        <i class="fas fa-gamepad"></i> Minigames entdecken
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <a href="#stats" class="scroll-down">
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </section>
+
+    <section class="stats" id="stats">
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="stat-number" id="player-count">1,500+</div>
+                <div class="stat-label">Aktive Spieler</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-gamepad"></i>
+                </div>
+                <div class="stat-number">2+</div>
+                <div class="stat-label">Einzigartige Minigames</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <div class="stat-number">7</div>
+                <div class="stat-label">Jahre Erfahrung</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Community Fokus</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="minigames" id="minigames">
+        <div class="section-header">
+            <span class="section-subtitle">Entdecke unsere</span>
+            <h2 class="section-title">Beliebte Minigames</h2>
+            <p class="section-description">
+                Tauche ein in unsere einzigartigen Minigame-Erlebnisse, die du so nirgendwo anders findest. 
+                Jedes Spiel bietet spannende Herausforderungen und jede Menge Spaß!
+            </p>
+        </div>
+        
         <div class="minigames-grid">
-            <div class="minigame">
-                <img src="https://i.postimg.cc/ncFHQVH1/1234509435634029.jpg" alt="Construct & Conquer">
-                <h3>Construct & Conquer</h3>
-                <p>Construct & Conquer ist unser eigenes PvP Minigame.</p>
-                <a href="https://www.craftportal.net/construct-conquer"><i class="fa-solid fa-chevron-right"></i> Weiter lesen</a>
+            <div class="minigame-card">
+                <div class="minigame-image" style="background-image: url('https://i.postimg.cc/ncFHQVH1/1234509435634029.jpg');"></div>
+                <div class="minigame-content">
+                    <h3 class="minigame-title">Construct & Conquer</h3>
+                    <p class="minigame-description">
+                        Unser eigenes PvP Minigame, bei dem Strategie und schnelles Handeln gefragt sind. Baue deine Basis, sammle Ressourcen und besiege deine Gegner!
+                    </p>
+                    <div class="minigame-meta">
+                        <a href="https://www.craftportal.net/construct-conquer" class="minigame-link">
+                            Mehr erfahren <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="minigame">
-                <img src="https://via.placeholder.com/250" alt="Coming Soon...">
-                <h3>Coming Soon...</h3>
-                <p>Hier gibt es noch nichts zu sehen.</p>
-                <a href=""><i class="fa-solid fa-chevron-right"></i> Weiter lesen</a>
-            </div>
-            <div class="minigame">
-                <img src="https://via.placeholder.com/250" alt="Coming Soon...">
-                <h3>Coming Soon...</h3>
-                <p>Hier gibt es noch nichts zu sehen.</p>
-                <a href=""><i class="fa-solid fa-chevron-right"></i> Weiter lesen</a>
+            
+            <div class="minigame-card">
+                <div class="minigame-image" style="background-image: url('https://via.placeholder.com/800x600/CCCCCC/CCCCCC.png');"></div>
+                <div class="minigame-content">
+                    <h3 class="minigame-title">Coming Soon...</h3>
+                    <p class="minigame-description">
+                        Wir arbeiten hart an einem brandneuen Minigame, das die Art, wie du Minecraft spielst, verändern wird. Bleib dran!
+                    </p>
+                    <div class="minigame-meta">
+                        <a href="#" class="minigame-link">
+                            Mehr erfahren <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <div class="main-title">Unser Team</div>
-
-    <div class="additional-sections-container">
-        <section class="additional-section" id="seite1">
-            <img src="https://minepic.org/avatar/MrCraft777/500" alt="MrCraft777">
-            <div class="text-content">
-                <h3>Owner | MrCraft777</h3>
-                <p>MrCraft777 ist der Gründer von Craftportal und eröffnete seinen ersten Minecraft-Server am 2. Juli 2020. Er bringt viel Erfahrung und Leidenschaft für Gaming in die Community ein.</p>
+    <section class="team" id="team">
+        <div class="section-header">
+            <span class="section-subtitle">Lerne unser</span>
+            <h2 class="section-title">Team kennen</h2>
+            <p class="section-description">
+                Hinter Craftportal.net steht ein engagiertes Team von Entwicklern, Moderatoren und kreativen Köpfen, 
+                die täglich daran arbeiten, das beste Minecraft-Erlebnis für dich zu schaffen.
+            </p>
+        </div>
+        
+        <div class="team-grid">
+            <div class="team-card">
+                <img src="https://minepic.org/avatar/MrCraft777/500" alt="MrCraft777" class="team-avatar">
+                <h3 class="team-name">MrCraft777</h3>
+                <p class="team-role">CEO & Entwickler</p>
+                <p class="team-bio">
+                    MrCraft777 ist der Gründer von Craftportal und eröffnete seinen ersten Minecraft-Server am 2. Juli 2017. 
+                    Er bringt viel Erfahrung und Leidenschaft für Gaming in die Community ein.
+                </p>
+                <div class="team-social">
+                    <a href="https://www.youtube.com/@MrCraft777"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.twitch.tv/mrcraft777_"><i class="fab fa-twitch"></i></a>
+                    <a href="https://x.com/mrcraft777"><i class="fab fa-twitter"></i></a>
+                    <a href="https://discord.com/users/997195034015318186"><i class="fab fa-discord"></i></a>
+                    <a href="https://github.com/MrCraft777"><i class="fab fa-github"></i></a>
+                </div>
             </div>
-        </section>
-
-        <section class="additional-section" id="seite2">
-            <img src="https://minepic.org/avatar/EinfachFloTV/500" alt="EinfachFloTV">
-            <div class="text-content">
-                <h3>Owner | EinfachFloTV</h3>
-                <p>EinfachFloTV ist ein kreativer Admin, der immer neue Ideen für spannende Events und Aktivitäten hat. Seine Leidenschaft für das Spiel ist ansteckend.</p>
+            
+            <div class="team-card">
+                <img src="https://minepic.org/avatar/EinfachFloTV/500" alt="EinfachFloTV" class="team-avatar">
+                <h3 class="team-name">EinfachFloTV</h3>
+                <p class="team-role">Co-Owner & CMO</p>
+                <p class="team-bio">
+                    EinfachFloTV ist ein kreativer Kopf, der immer neue Ideen für spannende Events und Aktivitäten hat. 
+                    Seine Leidenschaft für das Spiel ist ansteckend.
+                    &nbsp;<br>
+                    &nbsp;<br>
+                </p>
+                <div class="team-social">
+                    <a href="https://www.youtube.com/@EinfachFlo_TV"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.twitch.tv/einfachflo_tv"><i class="fab fa-twitch"></i></a>
+                    <a href="https://x.com/einfachflotv"><i class="fab fa-twitter"></i></a>
+                    <a href="https://discord.com/users/871714118946660352"><i class="fab fa-discord"></i></a>
+                    <a href="https://github.com/EinfachFloTV"><i class="fab fa-github"></i></a>
+                </div>
             </div>
-        </section>
-
-        <section class="additional-section" id="seite3">
-            <img src="https://minepic.org/avatar/Falk9103/500" alt="Falk9103">
-            <div class="text-content">
-                <h3>Admin | Falk9103</h3>
-                <p>Falk9103 ist ein engagierter Admin, der stets bereit ist, die Community zu unterstützen. Er ist bekannt für seine hilfreichen Ratschläge und seine freundliche Art.</p>
+            
+            <div class="team-card">
+                <img src="https://minepic.org/avatar/Falk9103/500" alt="Falk9103" class="team-avatar">
+                <h3 class="team-name">Falk9103</h3>
+                <p class="team-role">Admin & Organisator</p>
+                <p class="team-bio">
+                    Falk9103 ist ein engagierter Admin, der stets bereit ist, die Community zu unterstützen. 
+                    Er ist bekannt für seine hilfreichen Ratschläge und seine freundliche Art.
+                    &nbsp;<br>
+                    &nbsp;<br>
+                </p>
+                <div class="team-social">
+                    <a href="https://discord.com/users/1046187512013533225"><i class="fab fa-discord"></i></a>
+                </div>
             </div>
-        </section>
-
-        <section class="additional-section" id="seite4">
-            <img src="https://minepic.org/avatar/Paul04060/500" alt="Paul04060">
-            <div class="text-content">
-                <h3>Admin | Paul04060</h3>
-                <p>Paul04060 sorgt für Ordnung im Server und kümmert sich um technische Belange. Seine technische Expertise hilft, die Server am Laufen zu halten.</p>
+            
+            <div class="team-card">
+                <img src="https://minepic.org/avatar/Paul04060/500" alt="Paul04060" class="team-avatar">
+                <h3 class="team-name">Paul04060</h3>
+                <p class="team-role">Admin & Technik</p>
+                <p class="team-bio">
+                    Paul04060 sorgt für Ordnung im Server und kümmert sich um technische Belange. 
+                    Seine technische Expertise hilft, die Server am Laufen zu halten.
+                    &nbsp;<br>
+                    &nbsp;<br>
+                </p>
+                <div class="team-social">
+                    <a href="https://discord.com/users/1111320347766169651"><i class="fab fa-discord"></i></a>
+                </div>
             </div>
-        </section>
-    </div>
-
-    <div class="main-title">Wichtige Personen & Partner</div>
-
-    <div class="additional-sections-container">
-        <section class="additional-section" id="seite1">
-            <img src="https://i.postimg.cc/QCSLgP60/600-5.png" alt="EinfachSeppel">
-            <div class="text-content">
-                <h3>VIP | EinfachSeppel</h3>
-                <p> EinfachSeppel ist ein Minecraft-Spieler, der uns wertvolle Skript-Techniken beigebracht hat und uns dabei unterstützt hat, unsere Projekte zu verbessern.</p>
-            </div>
-        </section>
-
-        <section class="additional-section" id="seite2">
-            <img src="https://i.postimg.cc/fyJ2kj2g/600-7.png" alt="heyitsfizzy">
-            <div class="text-content">
-                <h3>VIP | heyitsfizzy</h3>
-                <p>Heyitsfizzy ist ein Minecraft-Spieler, der uns wertvolle Hinweise zu Bugs, Fehlern und Sicherheitslücken gegeben hat. Dank seiner Unterstützung konnten wir viele dieser Probleme identifizieren und beheben, um das Spielerlebnis zu verbessern und sicherer zu gestalten.</p>
-            </div>
-        </section>
-    </div>
-
-    <section class="history-section">
-        <h2>Unsere Geschichte</h2>
-        <p> Unser Minecraft-Projekt begann Anfang 2020 als gewöhnlicher Server, der typische Minigames bot, wie man sie auf vielen Servern finden kann. Ende 2020 ging unser Server offiziell online und erfreute sich anfangs der klassischen Spielmodi. Doch seit 2024 haben wir einen umfassenden Neustart hingelegt: Der Server wurde komplett überarbeitet und bietet nun einzigartige Minigames, die anderswo nicht zu finden sind.</p>
+        </div>
     </section>
-</main>
 
-<footer>
-    <p>&copy; 2025 LoopnetMedia. Alle Rechte vorbehalten.</p>
-    <p>Website powered by LoopnetMedia.</p>
-    <p><a href="https://loopnetmedia.com/impressum">Impressum</a> | <a href="https://loopnetmedia.com/datenschutz">Datenschutz</a></p>
-</footer>
+    <section class="partners" id="partners">
+        <div class="section-header">
+            <span class="section-subtitle">Unsere</span>
+            <h2 class="section-title">Partner & VIPs</h2>
+            <p class="section-description">
+                Wir arbeiten mit talentierten Personen und Organisationen zusammen, 
+                um das bestmögliche Erlebnis für unsere Community zu bieten.
+            </p>
+        </div>
+        
+        <div class="partner-grid">
+            <div class="partner-card">
+                <img src="https://minepic.org/avatar/zeppeliino
+/500" alt="EinfachSeppel" class="team-avatar">
+                <h3 class="team-name">Zeppeliino
+</h3>
+                <p class="team-role">Skript-Experte</p>
+                <p class="team-bio">
+                    Zeppeliino
+ ist ein Minecraft-Spieler, der uns wertvolle Skript-Techniken beigebracht hat 
+                    und uns dabei unterstützt hat, unsere Projekte zu verbessern.
+                </p>
+            </div>
+            
+            <div class="partner-card">
+                <img src="https://minepic.org/avatar/
+_Lunx_/500" alt="heyitsfizzy" class="team-avatar">
+                <h3 class="team-name">
+_Lunx_</h3>
+                <p class="team-role">Sicherheitsexperte</p>
+                <p class="team-bio">
+                    
+_Lunx_ ist ein Minecraft-Spieler, der uns wertvolle Hinweise zu Bugs, Fehlern und Sicherheitslücken gegeben hat. 
+                    Dank seiner Unterstützung konnten wir viele Probleme beheben.
+                </p>
+            </div>
+        </div>
+    </section>
 
+<section class="history" id="history">
+    <div class="history-container">
+        <h2 class="history-title">Unsere Geschichte</h2>
+        <p class="history-text">
+            Craftportal.net blickt auf eine packende Entwicklung zurück – von ersten Experimenten bis hin zu einem innovativen Minigame-Server, der Spieler begeistert. Hier ist unsere Reise.
+        </p>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">Ende 2017</div>
+                    <h3 class="timeline-title">Der erste Schritt</h3>
+                    <p class="timeline-description">
+                        Alles begann, als MrCraft777 sich die Bedrock Edition kaufte und voller Neugier seinen allerersten Minigame-Server startete. Ein kleines Projekt mit großer Wirkung.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">Anfang 2020</div>
+                    <h3 class="timeline-title">Der Einstieg in Java</h3>
+                    <p class="timeline-description">
+                        Mit dem Wechsel zur Java Edition wagte sich MrCraft777 an neue Herausforderungen – ein klassischer Minigame-Server entstand und zog erste Spieler an.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">2022</div>
+                    <h3 class="timeline-title">Die Geburt von Craftportal</h3>
+                    <p class="timeline-description">
+                        Der Name "Craftportal" wurde geboren – damals noch als Citybuild-Server mit Fokus auf Kreativität und gemeinsames Bauen. Die Vision nahm Form an.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">2024</div>
+                    <h3 class="timeline-title">Neuanfang mit Vision</h3>
+                    <p class="timeline-description">
+                        Craftportal wurde neu erfunden – mit einzigartigen, selbstentwickelten Minigames, die es in dieser Form nirgendwo sonst gibt. Der Server öffnete ein neues Kapitel.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">Heute</div>
+                    <h3 class="timeline-title">Eine wachsende Community</h3>
+                    <p class="timeline-description">
+                        Heute ist Craftportal.net ein lebendiger Ort voller kreativer Ideen, engagierter Spieler und stetiger Weiterentwicklung. Und die Reise ist noch lange nicht zu Ende.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section class="newsletter">
+        <div class="newsletter-container">
+            <h2 class="newsletter-title">Bleib auf dem Laufenden</h2>
+            <p class="newsletter-description">
+                Melde dich für unseren Newsletter an und verpasse keine Updates, Events oder exklusiven Angebote!
+            </p>
+            
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Deine E-Mail-Adresse" required>
+                <button type="submit" class="newsletter-btn">Abonnieren</button>
+            </form>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <img src="https://i.postimg.cc/9XLqdFxj/craftportal.png" alt="Craftportal Logo">
+                </div>
+                <p class="footer-about">
+                    Craftportal.net ist eine Minecraft-Minigame-Community, die sich auf einzigartige Spielerlebnisse und eine freundliche Atmosphäre konzentriert.
+                </p>
+                <div class="footer-social">
+                    <a href="https://discord.gg/FBJmEN6p58"><i class="fab fa-discord"></i></a>
+                    <a href="https://x.com/craftportal_net"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.youtube.com/@craftportal_net"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/craftportalnet/"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="https://www.craftportal.net/home">Home</a></li>
+                    <li><a href="https://www.craftportal.net/news">News</a></li>
+                    <li><a href="https://www.craftportal.net/support">Support</a></li>
+                    <li><a href="https://www.craftportal.net/shop">Shop</a></li>
+                    <li><a href="https://www.craftportal.net/leaderboard">Leaderboard</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3 class="footer-title">Minigames</h3>
+                <ul class="footer-links">
+                    <li><a href="https://www.craftportal.net/construct-conquer">Construct & Conquer</a></li>
+                    <li><a href="#">Coming Soon</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3 class="footer-title">Rechtliches</h3>
+                <ul class="footer-links">
+                    <li><a href="https://loopnetmedia.com/impressum">Impressum</a></li>
+                    <li><a href="https://loopnetmedia.com/datenschutz">Datenschutz</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Craftportal.net - Alle Rechte vorbehalten. | Powered by <a href="https://loopnetmedia.com">LoopnetMedia</a></p>
+        </div>
+    </footer>
+
+    <div class="modal" id="login-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Anmelden</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="login-username" class="form-label">Minecraft Benutzername</label>
+                    <input type="text" id="login-username" class="form-input" placeholder="Dein Minecraft Name">
+                </div>
+            <div class="form-footer">
+                <button class="btn-modal btn-modal-primary" id="login-submit-btn">Anmelden</button>
+            </div>
+        </div>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 <script>
-function copyIP() {
-    const ipAddress = 'craftportal.net';
-    navigator.clipboard.writeText(ipAddress).then(() => {
-        alert('IP-Adresse wurde kopiert: ' + ipAddress);
-    }).catch(err => {
-        console.error('Fehler beim Kopieren der IP-Adresse: ', err);
-    });
-}
+document.querySelectorAll('a[href^="http"]').forEach(link => {
+    if (!link.href.includes(location.hostname)) {
+        link.setAttribute('target', '_blank');
+        link.setAttribute('rel', 'noopener noreferrer');
+    }
+});
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const navLinks = document.querySelector('.nav-links');
 
-function scrollDown() {
-    document.querySelector('.minigames-section').scrollIntoView({
-        behavior: 'smooth'
-    });
-}
-
-document.getElementById('login-link').addEventListener('click', function(event) {
-    event.preventDefault();
-    document.getElementById('login-modal').style.display = 'flex';
+mobileMenuBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ? 
+        '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
 });
 
-document.getElementById('close-modal').addEventListener('click', function() {
-    document.getElementById('login-modal').style.display = 'none';
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: 'smooth'
+            });
+            
+            if (navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        }
+    });
 });
 
-document.getElementById('submit').addEventListener('click', function() {
-    const username = document.getElementById('minecraft-username').value;
-    if (username) {
-        // Setze den Minecraft-Avatar als Profilbild
-        const profilePic = document.getElementById('profile-pic');
-        profilePic.classList.remove('fa-circle-user');
-        profilePic.innerHTML = '';
-        profilePic.style.backgroundImage = `url(https://minepic.org/avatar/${username})`;
-        profilePic.style.width = '35px';
-        profilePic.style.height = '35px';
-        profilePic.style.backgroundSize = 'cover';
-        profilePic.style.borderRadius = '50%';
-
-        document.getElementById('login-link').innerText = username;
-        document.getElementById('login-modal').style.display = 'none';
-      
-        document.getElementById('login-link').removeEventListener('click', loginHandler);
-        document.getElementById('login-link').addEventListener('click', logoutHandler);
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
     }
 });
 
-function logoutHandler(event) {
-    event.preventDefault();
-    const profilePic = document.getElementById('profile-pic');
-    profilePic.style.backgroundImage = '';
-    profilePic.classList.add('fa-circle-user');
-    profilePic.style.width = '';
-    profilePic.style.height = '';
-    profilePic.style.borderRadius = '';
+const loginModal = document.getElementById('login-modal');
+const loginBtn = document.getElementById('login-btn');
+const closeButtons = document.querySelectorAll('.modal-close');
 
-    document.getElementById('login-link').innerText = 'Anmelden';
-
-    document.getElementById('login-link').removeEventListener('click', logoutHandler);
-    document.getElementById('login-link').addEventListener('click', loginHandler);
+function openModal(modal) {
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden';
 }
 
-function loginHandler(event) {
-    event.preventDefault();
-    document.getElementById('login-modal').style.display = 'flex';
+function closeModal(modal) {
+    modal.classList.remove('show');
+    document.body.style.overflow = '';
 }
 
-document.getElementById('login-link').addEventListener('click', loginHandler);
+loginBtn.addEventListener('click', () => openModal(loginModal));
+
+closeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const modal = button.closest('.modal');
+        closeModal(modal);
+    });
+});
+
+window.addEventListener('click', (e) => {
+    if (e.target.classList.contains('modal')) {
+        closeModal(e.target);
+    }
+});
+
+const loginSubmitBtn = document.getElementById('login-submit-btn');
+const authButtons = document.getElementById('auth-buttons');
+const userProfile = document.getElementById('user-profile');
+const usernameDisplay = document.getElementById('username');
+const userAvatar = document.getElementById('user-avatar');
+
+loginSubmitBtn.addEventListener('click', () => {
+    const username = document.getElementById('login-username').value;
+    if (username) {
+        authButtons.style.display = 'none';
+        userProfile.style.display = 'flex';
+        usernameDisplay.textContent = username;
+        userAvatar.style.backgroundImage = `url(https://minepic.org/avatar/${username})`;
+        closeModal(loginModal);
+        
+        showNotification(`Willkommen zurück, ${username}!`);
+    }
+});
+
+const logoutBtn = document.getElementById('logout-btn');
+logoutBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    authButtons.style.display = '';
+    userProfile.style.display = 'none';
+    showNotification('Erfolgreich abgemeldet. Bis bald!');
+});
+
+const copyIpBtn = document.getElementById('copy-ip-btn');
+copyIpBtn.addEventListener('click', () => {
+    navigator.clipboard.writeText('craftportal.net').then(() => {
+        showNotification('IP-Adresse kopiert: craftportal.net');
+    }).catch(err => {
+        console.error('Could not copy text: ', err);
+    });
+});
+
+function showNotification(message) {
+    const notification = document.createElement('div');
+    notification.className = 'notification';
+    notification.textContent = message;
+    notification.style.position = 'fixed';
+    notification.style.bottom = '20px';
+    notification.style.right = '20px';
+    notification.style.backgroundColor = 'var(--primary)';
+    notification.style.color = 'white';
+    notification.style.padding = '15px 25px';
+    notification.style.borderRadius = 'var(--border-radius)';
+    notification.style.boxShadow = 'var(--shadow)';
+    notification.style.zIndex = '9999';
+    notification.style.transform = 'translateY(100px)';
+    notification.style.opacity = '0';
+    notification.style.transition = 'all 0.3s ease';
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.style.transform = 'translateY(0)';
+        notification.style.opacity = '1';
+    }, 100);
+    
+    setTimeout(() => {
+        notification.style.transform = 'translateY(100px)';
+        notification.style.opacity = '0';
+        setTimeout(() => {
+            document.body.removeChild(notification);
+        }, 300);
+    }, 3000);
+}
+
+function animateStats() {
+    const playerCount = document.getElementById('player-count');
+    let count = 0;
+    const target = 50;
+    const duration = 2000;
+    const increment = target / (duration / 16);
+    
+    const timer = setInterval(() => {
+        count += increment;
+        if (count >= target) {
+            count = target;
+            clearInterval(timer);
+        }
+        playerCount.textContent = Math.floor(count).toLocaleString() + '+';
+    }, 16);
+}
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            if (entry.target.id === 'stats') {
+                animateStats();
+            }
+            entry.target.classList.add('animate');
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('section').forEach(section => {
+    observer.observe(section);
+});
 </script>
 
 </body>
-
 </html>
