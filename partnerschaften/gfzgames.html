@@ -1,1 +1,1237 @@
-https://craftportal.net/partnerschaften/gfzgames.html
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Craftportal • Partnerschaft mit GFZGames</title>
+    <link rel="icon" href="https://craftportal.net/images/favicon.ico" type="image/x-icon">
+    <meta name="description" content="Craftportal.net freut sich über die Partnerschaft mit GFZGames - gemeinsam für besseres Minecraft-Erlebnis!">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+    <style>
+    :root {
+        --primary: #00aaff;
+        --primary-dark: #0099cc;
+        --secondary: #7289da;
+        --secondary-dark: #5f73a1;
+        --danger: #ff4444;
+        --danger-dark: #cc3333;
+        --dark: #121212;
+        --darker: #0a0a0a;
+        --light: #ffffff;
+        --gray: #888;
+        --dark-gray: #333;
+        --section-bg: rgba(20, 20, 20, 0.9);
+        --card-bg: rgba(30, 30, 30, 0.8);
+        --nav-bg: rgba(10, 10, 10, 0.95);
+        --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        --shadow-hover: 0 8px 15px rgba(0, 0, 0, 0.2);
+        --border-radius: 12px;
+        --border-radius-lg: 16px;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        color: var(--light);
+        background-color: var(--dark);
+        line-height: 1.6;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+    }
+
+    h1, h2, h3, h4 {
+        font-weight: 600;
+        line-height: 1.2;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+        transition: var(--transition);
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 5%;
+        background-color: var(--nav-bg);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        transition: var(--transition);
+    }
+
+    nav.scrolled {
+        padding: 10px 5%;
+        box-shadow: var(--shadow);
+    }
+
+    .logo img {
+        height: 50px;
+        transition: var(--transition);
+    }
+
+    nav.scrolled .logo img {
+        height: 40px;
+    }
+
+    .nav-links {
+        display: flex;
+        list-style: none;
+    }
+
+    .nav-links li {
+        margin: 0 10px;
+        position: relative;
+    }
+
+    .nav-links a {
+        padding: 10px 15px;
+        font-weight: 500;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+    }
+
+    .nav-links a i {
+        margin-right: 8px;
+        font-size: 1.1rem;
+    }
+
+    .nav-links a:hover {
+        color: var(--primary);
+    }
+
+    .nav-links a.active {
+        color: var(--primary);
+    }
+
+    .nav-links a.active::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: var(--primary);
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+    }
+
+    .auth-buttons {
+        display: flex;
+        align-items: center;
+    }
+
+    .auth-btn {
+        padding: 8px 20px;
+        border-radius: var(--border-radius);
+        font-weight: 500;
+        margin-left: 10px;
+        display: flex;
+        align-items: center;
+    }
+
+    .auth-btn i {
+        margin-right: 8px;
+    }
+
+    .login-btn {
+        background-color: transparent;
+        border: 1px solid var(--primary);
+        color: var(--primary);
+        font-family: 'Poppins', sans-serif;
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+    }
+
+    .login-btn:hover {
+        background-color: rgba(0, 170, 255, 0.1);
+    }
+
+    .register-btn {
+        background-color: var(--primary);
+        color: var(--light);
+        border: 0px;
+        font-family: 'Poppins', sans-serif;
+        transition: all 0.2s ease-in-out;
+        cursor: button;
+    }
+
+    .register-btn:hover {
+        background-color: var(--primary-dark);
+    }
+
+    .user-profile {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .user-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-size: cover;
+        background-position: center;
+        margin-right: 10px;
+        border: 2px solid var(--primary);
+    }
+
+    .username {
+        font-weight: 500;
+        margin-right: 5px;
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: var(--dark);
+        border-radius: var(--border-radius);
+        padding: 10px 0;
+        min-width: 200px;
+        box-shadow: var(--shadow);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: var(--transition);
+        z-index: 1001;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .user-profile:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .dropdown-menu a {
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+    }
+
+    .dropdown-menu a:hover {
+        background-color: rgba(255, 255, 255, 0.05);
+        color: var(--primary);
+    }
+
+    .dropdown-menu a i {
+        margin-right: 10px;
+        width: 20px;
+        text-align: center;
+    }
+
+    .dropdown-divider {
+        height: 1px;
+        background-color: rgba(255, 255, 255, 0.1);
+        margin: 5px 0;
+    }
+
+    .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--light);
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero {
+        position: relative;
+        height: 80vh;
+        min-height: 600px;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .hero-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('https://i.postimg.cc/wBzf0NXz/background-2x.png');
+        background-size: cover;
+        background-position: center;
+        z-index: -2;
+    }
+
+    .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0.5) 100%);
+        z-index: -1;
+    }
+
+    .hero-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 5%;
+        width: 100%;
+    }
+
+    .hero-text {
+        max-width: 800px;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .hero-subtitle {
+        color: var(--primary);
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 500;
+    }
+
+    .hero-title {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        line-height: 1.1;
+    }
+
+    .hero-description {
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+        opacity: 0.9;
+    }
+
+    .hero-buttons {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .btn {
+        padding: 12px 25px;
+        border-radius: var(--border-radius);
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition);
+        font-size: 1rem;
+        cursor: pointer;
+    }
+
+    .btn i {
+        margin-right: 8px;
+    }
+
+    .btn-primary {
+        background-color: var(--primary);
+        color: var(--light);
+        border: 0px;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .btn-primary:hover {
+        background-color: var(--primary-dark);
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-hover);
+    }
+
+    .btn-secondary {
+        background-color: var(--secondary);
+        color: var(--light);
+    }
+
+    .btn-secondary:hover {
+        background-color: var(--secondary-dark);
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-hover);
+    }
+
+    .btn-outline {
+        background-color: transparent;
+        border: 2px solid var(--light);
+        color: var(--light);
+    }
+
+    .btn-outline:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-hover);
+    }
+
+    .partnership-content {
+        padding: 100px 5%;
+        background-color: var(--section-bg);
+    }
+
+    .partnership-container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .partnership-header {
+        text-align: center;
+        margin-bottom: 60px;
+    }
+
+    .section-subtitle {
+        color: var(--primary);
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 15px;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+
+    .section-description {
+        max-width: 700px;
+        margin: 0 auto;
+        opacity: 0.8;
+    }
+
+    .partnership-details {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        align-items: center;
+        margin-bottom: 80px;
+    }
+
+    .partnership-image {
+        border-radius: var(--border-radius-lg);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+    }
+
+    .partnership-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .partnership-text h3 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        color: var(--primary);
+    }
+
+    .partnership-text p {
+        margin-bottom: 20px;
+        opacity: 0.9;
+        line-height: 1.8;
+    }
+
+    .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-bottom: 80px;
+    }
+
+    .benefit-card {
+        background-color: var(--card-bg);
+        padding: 30px;
+        border-radius: var(--border-radius);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: var(--transition);
+    }
+
+    .benefit-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-hover);
+    }
+
+    .benefit-icon {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 20px;
+    }
+
+    .benefit-title {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+
+    .benefit-description {
+        opacity: 0.8;
+    }
+
+    .cta-section {
+        text-align: center;
+        padding: 60px;
+        background-color: var(--card-bg);
+        border-radius: var(--border-radius-lg);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .cta-title {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .cta-description {
+        max-width: 600px;
+        margin: 0 auto 30px;
+        opacity: 0.9;
+    }
+
+    footer {
+        background-color: var(--darker);
+        padding: 60px 5% 30px;
+    }
+
+    .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 40px;
+        margin-bottom: 40px;
+    }
+
+    .footer-logo {
+        margin-bottom: 20px;
+    }
+
+    .footer-logo img {
+        height: 50px;
+    }
+
+    .footer-about {
+        margin-bottom: 20px;
+        opacity: 0.8;
+    }
+
+    .footer-social {
+        display: flex;
+        gap: 15px;
+    }
+
+    .footer-social a {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition);
+    }
+
+    .footer-social a:hover {
+        background-color: var(--primary);
+        color: var(--light);
+        transform: translateY(-3px);
+    }
+
+    .footer-title {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        color: var(--light);
+    }
+
+    .footer-links {
+        list-style: none;
+    }
+
+    .footer-links li {
+        margin-bottom: 10px;
+    }
+
+    .footer-links a {
+        opacity: 0.8;
+        transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+        opacity: 1;
+        color: var(--primary);
+    }
+
+    .footer-bottom {
+        text-align: center;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-bottom p {
+        opacity: 0.7;
+        font-size: 0.9rem;
+    }
+
+    .footer-bottom a {
+        color: var(--primary);
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 2000;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+    }
+
+    .modal.show {
+        display: flex;
+    }
+
+    .modal-content {
+        background-color: var(--dark);
+        border-radius: var(--border-radius-lg);
+        width: 90%;
+        max-width: 400px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        transform: translateY(20px);
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+
+    .modal.show .modal-content {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .modal-header {
+        padding: 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .modal-title {
+        font-size: 1.5rem;
+    }
+
+    .modal-close {
+        background: none;
+        border: none;
+        color: var(--light);
+        font-size: 1.5rem;
+        cursor: pointer;
+        opacity: 0.7;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .modal-close:hover {
+        opacity: 1;
+        color: var(--primary);
+    }
+
+    .modal-body {
+        padding: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+    }
+
+    .form-input {
+        width: 100%;
+        padding: 12px 15px;
+        border-radius: var(--border-radius);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background-color: rgba(255, 255, 255, 0.05);
+        color: var(--light);
+        font-family: 'Poppins', sans-serif;
+        transition: var(--transition);
+    }
+
+    .form-input:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 2px rgba(0, 170, 255, 0.2);
+    }
+
+    .form-footer {
+        display: flex;
+        justify-content: flex-end;
+        padding: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .btn-modal {
+        padding: 10px 20px;
+        border-radius: var(--border-radius);
+        font-weight: 500;
+        cursor: pointer;
+        transition: var(--transition);
+    }
+
+    .btn-modal-primary {
+        background-color: var(--primary);
+        color: var(--light);
+        border: none;
+        font-family: 'Poppins', sans-serif;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .btn-modal-primary:hover {
+        background-color: var(--primary-dark);
+    }
+
+    .btn-modal-secondary {
+        background-color: transparent;
+        color: var(--light);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        margin-right: 10px;
+        font-family: 'Poppins', sans-serif;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .btn-modal-secondary:hover {
+        background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .form-link {
+        color: var(--primary);
+        font-size: 0.9rem;
+        text-align: center;
+        display: block;
+        margin-top: 15px;
+    }
+
+    @media (max-width: 992px) {
+        .nav-links {
+            position: fixed;
+            top: 80px;
+            left: -100%;
+            width: 80%;
+            height: calc(100vh - 80px);
+            background-color: var(--nav-bg);
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding-top: 40px;
+            transition: var(--transition);
+            z-index: 999;
+        }
+
+        .nav-links.active {
+            left: 0;
+        }
+
+        .nav-links li {
+            margin: 15px 0;
+        }
+
+        .mobile-menu-btn {
+            display: block;
+        }
+
+        .hero-title {
+            font-size: 2.8rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+        }
+
+        .partnership-details {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .hero {
+            min-height: 500px;
+            height: 70vh;
+        }
+
+        .hero-title {
+            font-size: 2.2rem;
+        }
+
+        .hero-buttons {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .btn {
+            width: 100%;
+        }
+    }
+
+    @media (max-width: 576px) {
+        nav {
+            padding: 15px;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .hero-title {
+            font-size: 2rem;
+        }
+
+        .hero-description {
+            font-size: 1rem;
+        }
+
+        .section-header {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+        }
+    }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="logo">
+            <a href="https://craftportal.net/">
+                <img src="https://i.postimg.cc/9XLqdFxj/craftportal.png" alt="Craftportal Logo">
+            </a>
+        </div>
+        
+        <ul class="nav-links">
+            <li><a href="https://www.craftportal.net/home"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="https://www.craftportal.net/news"><i class="fas fa-newspaper"></i> News</a></li>
+            <li><a href="https://www.craftportal.net/support"><i class="fas fa-headset"></i> Support</a></li>
+            <li><a href="https://www.craftportal.net/shop"><i class="fas fa-shopping-cart"></i> Shop</a></li>
+            <li><a href="https://www.craftportal.net/leaderboard"><i class="fas fa-trophy"></i> Leaderboard</a></li>
+            <li><a href="https://www.craftportal.net/partners" class="active"><i class="fas fa-handshake"></i> Partner</a></li>
+        </ul>
+        
+        <div class="auth-buttons" id="auth-buttons">
+            <button class="auth-btn login-btn" id="login-btn"><i class="fas fa-sign-in-alt"></i> Anmelden</button>
+        </div>
+        
+        <div class="user-profile" id="user-profile" style="display: none;">
+            <div class="user-avatar" id="user-avatar"></div>
+            <span class="username" id="username">Benutzername</span>
+            <i class="fas fa-chevron-down"></i>
+            
+            <div class="dropdown-menu">
+                <a href="#"><i class="fas fa-user"></i> Profil</a>
+                <a href="#"><i class="fas fa-cog"></i> Einstellungen</a>
+                <a href="#"><i class="fas fa-shopping-cart"></i> Shop</a>
+                <div class="dropdown-divider"></div>
+                <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Abmelden</a>
+            </div>
+        </div>
+        
+        <button class="mobile-menu-btn" id="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content">
+            <div class="hero-text">
+                <span class="hero-subtitle">Craftportal & GFZGames</span>
+                <h1 class="hero-title">Offizielle Partnerschaft</h1>
+                <p class="hero-description">
+                    Wir freuen uns, unsere Partnerschaft mit GFZGames bekannt zu geben - zwei Minecraft-Communities, die sich gemeinsam für bessere Spielerlebnisse und Innovationen einsetzen.
+                </p>
+                
+                <div class="hero-buttons">
+                    <a href="#partnership" class="btn btn-primary">
+                        <i class="fas fa-info-circle"></i> Mehr erfahren
+                    </a>
+                    <a href="https://gfzgames.de" class="btn btn-secondary" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> GFZGames besuchen
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnership Content -->
+    <section class="partnership-content" id="partnership">
+        <div class="partnership-container">
+            <div class="partnership-header">
+                <span class="section-subtitle">Zusammenarbeit</span>
+                <h2 class="section-title">Unsere Partnerschaft</h2>
+                <p class="section-description">
+                    Craftportal.net und GFZGames teilen die gleiche Vision - qualitativ hochwertige Minecraft-Erlebnisse zu schaffen. 
+                    Durch diese Partnerschaft können wir unsere Ressourcen und Expertise bündeln.
+                </p>
+            </div>
+            
+            <div class="partnership-details">
+                <div class="partnership-image">
+                    <img src="https://i.postimg.cc/8zY5JQ0v/partnership.jpg" alt="Craftportal und GFZGames Partnerschaft">
+                </div>
+                
+                <div class="partnership-text">
+                    <h3>Gemeinsam stärker</h3>
+                    <p>
+                        Diese Partnerschaft ermöglicht es uns, unsere Communities zu verbinden und gemeinsam neue Projekte zu entwickeln. 
+                        Spieler beider Server profitieren von exklusiven Inhalten und gemeinsamen Events.
+                    </p>
+                    <p>
+                        GFZGames bringt jahrelange Erfahrung in der Entwicklung von einzigartigen Minecraft-Minigames mit, 
+                        während Craftportal für seine engagierte Community und innovative Spielmodi bekannt ist.
+                    </p>
+                    <p>
+                        Zusammen arbeiten wir an der Entwicklung neuer Minigames, der Verbesserung der Serverleistung 
+                        und der Schaffung einer noch besseren Spielumgebung für alle.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="partnership-header">
+                <span class="section-subtitle">Vorteile</span>
+                <h2 class="section-title">Was bedeutet das für dich?</h2>
+                <p class="section-description">
+                    Als Spieler profitierst du in vielerlei Hinsicht von dieser Partnerschaft. Hier sind einige der wichtigsten Vorteile:
+                </p>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="benefit-title">Größere Community</h3>
+                    <p class="benefit-description">
+                        Trete einer größeren Gemeinschaft von Minecraft-Spielern bei und finde leichter neue Freunde und Teamkollegen.
+                    </p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3 class="benefit-title">Gemeinsame Events</h3>
+                    <p class="benefit-description">
+                        Nimm an exklusiven Events teil, die von beiden Teams organisiert werden, mit einzigartigen Preisen und Herausforderungen.
+                    </p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3 class="benefit-title">Neue Minigames</h3>
+                    <p class="benefit-description">
+                        Genieße neue, gemeinsam entwickelte Minigames, die das Beste aus beiden Welten vereinen.
+                    </p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3 class="benefit-title">Exklusive Belohnungen</h3>
+                    <p class="benefit-description">
+                        Erhalte besondere Belohnungen und Rangvorteile, die auf beiden Servern gültig sind.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="cta-section">
+                <h2 class="cta-title">Bereit für das gemeinsame Abenteuer?</h2>
+                <p class="cta-description">
+                    Besuche jetzt GFZGames und entdecke, was unsere Partnerschaft für dich bereithält. 
+                    Oder trete direkt unserem Discord bei, um über alle Neuigkeiten informiert zu bleiben.
+                </p>
+                <div class="hero-buttons" style="justify-content: center;">
+                    <a href="https://gfzgames.de" class="btn btn-primary" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Zu GFZGames
+                    </a>
+                    <a href="http://dc.gfzgames.de" class="btn btn-secondary">
+                        <i class="fab fa-discord"></i> Unser Discord
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <img src="https://i.postimg.cc/9XLqdFxj/craftportal.png" alt="Craftportal Logo">
+                </div>
+                <p class="footer-about">
+                    Craftportal.net ist eine Minecraft-Minigame-Community, die sich auf einzigartige Spielerlebnisse und eine freundliche Atmosphäre konzentriert.
+                </p>
+                <div class="footer-social">
+                    <a href="https://discord.gg/FBJmEN6p58"><i class="fab fa-discord"></i></a>
+                    <a href="https://x.com/craftportal_net"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.youtube.com/@craftportal_net"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/craftportalnet/"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="https://www.craftportal.net/home">Home</a></li>
+                    <li><a href="https://www.craftportal.net/news">News</a></li>
+                    <li><a href="https://www.craftportal.net/support">Support</a></li>
+                    <li><a href="https://www.craftportal.net/shop">Shop</a></li>
+                    <li><a href="https://www.craftportal.net/leaderboard">Leaderboard</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3 class="footer-title">Minigames</h3>
+                <ul class="footer-links">
+                    <li><a href="https://www.craftportal.net/construct-conquer">Construct & Conquer</a></li>
+                    <li><a href="#">Coming Soon</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3 class="footer-title">Rechtliches</h3>
+                <ul class="footer-links">
+                    <li><a href="https://loopnetmedia.com/impressum">Impressum</a></li>
+                    <li><a href="https://loopnetmedia.com/datenschutz">Datenschutz</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Craftportal.net - Alle Rechte vorbehalten. | Powered by <a href="https://loopnetmedia.com">LoopnetMedia</a></p>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal" id="login-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Anmelden</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="login-username" class="form-label">Minecraft Benutzername</label>
+                    <input type="text" id="login-username" class="form-input" placeholder="Dein Minecraft Name">
+                </div>
+            <div class="form-footer">
+                <button class="btn-modal btn-modal-primary" id="login-submit-btn">Anmelden</button>
+            </div>
+        </div>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script>
+document.querySelectorAll('a[href^="http"]').forEach(link => {
+    if (!link.href.includes(location.hostname)) {
+        link.setAttribute('target', '_blank');
+        link.setAttribute('rel', 'noopener noreferrer');
+    }
+});
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const navLinks = document.querySelector('.nav-links');
+
+mobileMenuBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ? 
+        '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+});
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: 'smooth'
+            });
+            
+            if (navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        }
+    });
+});
+
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+
+const loginModal = document.getElementById('login-modal');
+const loginBtn = document.getElementById('login-btn');
+const closeButtons = document.querySelectorAll('.modal-close');
+
+function openModal(modal) {
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal(modal) {
+    modal.classList.remove('show');
+    document.body.style.overflow = '';
+}
+
+loginBtn.addEventListener('click', () => openModal(loginModal));
+
+closeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const modal = button.closest('.modal');
+        closeModal(modal);
+    });
+});
+
+window.addEventListener('click', (e) => {
+    if (e.target.classList.contains('modal')) {
+        closeModal(e.target);
+    }
+});
+
+const loginSubmitBtn = document.getElementById('login-submit-btn');
+const authButtons = document.getElementById('auth-buttons');
+const userProfile = document.getElementById('user-profile');
+const usernameDisplay = document.getElementById('username');
+const userAvatar = document.getElementById('user-avatar');
+
+loginSubmitBtn.addEventListener('click', () => {
+    const username = document.getElementById('login-username').value;
+    if (username) {
+        authButtons.style.display = 'none';
+        userProfile.style.display = 'flex';
+        usernameDisplay.textContent = username;
+        userAvatar.style.backgroundImage = `url(https://minepic.org/avatar/${username})`;
+        closeModal(loginModal);
+        
+        showNotification(`Willkommen zurück, ${username}!`);
+    }
+});
+
+const logoutBtn = document.getElementById('logout-btn');
+logoutBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    authButtons.style.display = '';
+    userProfile.style.display = 'none';
+    showNotification('Erfolgreich abgemeldet. Bis bald!');
+});
+
+const copyIpBtn = document.getElementById('copy-ip-btn');
+copyIpBtn.addEventListener('click', () => {
+    navigator.clipboard.writeText('craftportal.net').then(() => {
+        showNotification('IP-Adresse kopiert: craftportal.net');
+    }).catch(err => {
+        console.error('Could not copy text: ', err);
+    });
+});
+
+function showNotification(message) {
+    const notification = document.createElement('div');
+    notification.className = 'notification';
+    notification.textContent = message;
+    notification.style.position = 'fixed';
+    notification.style.bottom = '20px';
+    notification.style.right = '20px';
+    notification.style.backgroundColor = 'var(--primary)';
+    notification.style.color = 'white';
+    notification.style.padding = '15px 25px';
+    notification.style.borderRadius = 'var(--border-radius)';
+    notification.style.boxShadow = 'var(--shadow)';
+    notification.style.zIndex = '9999';
+    notification.style.transform = 'translateY(100px)';
+    notification.style.opacity = '0';
+    notification.style.transition = 'all 0.3s ease';
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.style.transform = 'translateY(0)';
+        notification.style.opacity = '1';
+    }, 100);
+    
+    setTimeout(() => {
+        notification.style.transform = 'translateY(100px)';
+        notification.style.opacity = '0';
+        setTimeout(() => {
+            document.body.removeChild(notification);
+        }, 300);
+    }, 3000);
+}
+
+function animateStats() {
+    const playerCount = document.getElementById('player-count');
+    let count = 0;
+    const target = 50;
+    const duration = 2000;
+    const increment = target / (duration / 16);
+    
+    const timer = setInterval(() => {
+        count += increment;
+        if (count >= target) {
+            count = target;
+            clearInterval(timer);
+        }
+        playerCount.textContent = Math.floor(count).toLocaleString() + '+';
+    }, 16);
+}
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            if (entry.target.id === 'stats') {
+                animateStats();
+            }
+            entry.target.classList.add('animate');
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('section').forEach(section => {
+    observer.observe(section);
+});
+</script>
+</body>
+</html>
